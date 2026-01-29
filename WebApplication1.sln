@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "razor-pages", "razor-pages", "{B09065B6-BBDC-CF59-E609-9D17C1ACCA67}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "microsoft-learn", "microsoft-learn", "{E05DF58B-21A4-5A08-ACBE-951BA53FE6E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pizza-ordering", "pizza-ordering", "{515FE5BF-267C-5DA3-EED4-8B591DABD6AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "razor-pages\microsoft-learn\pizza-ordering\WebApplication1\WebApplication1.csproj", "{2864BB5D-08C3-4715-A778-2E0DA9AF7323}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2864BB5D-08C3-4715-A778-2E0DA9AF7323}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2864BB5D-08C3-4715-A778-2E0DA9AF7323}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2864BB5D-08C3-4715-A778-2E0DA9AF7323}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2864BB5D-08C3-4715-A778-2E0DA9AF7323}.Debug|x64.Build.0 = Debug|Any CPU
+		{2864BB5D-08C3-4715-A778-2E0DA9AF7323}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2864BB5D-08C3-4715-A778-2E0DA9AF7323}.Debug|x86.Build.0 = Debug|Any CPU
+		{2864BB5D-08C3-4715-A778-2E0DA9AF7323}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2864BB5D-08C3-4715-A778-2E0DA9AF7323}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2864BB5D-08C3-4715-A778-2E0DA9AF7323}.Release|x64.ActiveCfg = Release|Any CPU
+		{2864BB5D-08C3-4715-A778-2E0DA9AF7323}.Release|x64.Build.0 = Release|Any CPU
+		{2864BB5D-08C3-4715-A778-2E0DA9AF7323}.Release|x86.ActiveCfg = Release|Any CPU
+		{2864BB5D-08C3-4715-A778-2E0DA9AF7323}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E05DF58B-21A4-5A08-ACBE-951BA53FE6E3} = {B09065B6-BBDC-CF59-E609-9D17C1ACCA67}
+		{515FE5BF-267C-5DA3-EED4-8B591DABD6AF} = {E05DF58B-21A4-5A08-ACBE-951BA53FE6E3}
+		{2864BB5D-08C3-4715-A778-2E0DA9AF7323} = {515FE5BF-267C-5DA3-EED4-8B591DABD6AF}
+	EndGlobalSection
+EndGlobal
