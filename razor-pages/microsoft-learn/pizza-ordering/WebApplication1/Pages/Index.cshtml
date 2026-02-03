@@ -2,35 +2,129 @@
 @model IndexModel
 @{
     ViewData["Title"] = "The Home for Pizza Lovers";
-TimeSpan timeInBusiness = DateTime.Now - new DateTime(2018, 8, 14);
+    TimeSpan timeInBusiness = DateTime.Now - new DateTime(2018, 8, 14);
 }
+<div class="row">
 
-<div class="container">
-    <div class="text-center mt-5">
-        <h1 class="display-3 fw-bold text-primary">Welcome to Contoso Pizza</h1>
-        <p class="lead text-muted mb-4">The best pizza in town for @Convert.ToInt32(timeInBusiness.TotalDays) days!</p>
-    </div>
+    <div class="col-9">
+        <div class="border p-4 mt-4 bg-light rounded-3">
 
-    <div class="row justify-content-center mt-4">
-        <div class="col-md-8">
-            <div class="card shadow">
-                <div class="card-body p-4">
-                    <h2 class="card-title h4 mb-3">Why Choose Us?</h2>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><span class="badge bg-success me-2">✓</span>Fresh ingredients daily</li>
-                        <li class="mb-2"><span class="badge bg-success me-2">✓</span>Family recipes since 2018</li>
-                        <li class="mb-2"><span class="badge bg-success me-2">✓</span>Fast delivery</li>
-                    </ul>
-                    <div class="d-flex gap-2 mt-4">
-                        <a href="/PizzaList" class="btn btn-primary btn-lg">View Menu</a>
-                        <a href="/Privacy" class="btn btn-outline-secondary btn-lg">Learn More</a>
+            <div class="text-center mt-5">
+                <h1 class="display-3 fw-bold text-primary">Welcome to Contos Pizza</h1>
+                <p class="lead text-muted mb-4">The best pizza in town for @Convert.ToInt32(timeInBusiness.TotalDays)
+                    days!
+                </p>
+            </div>
+
+            <div class="container-fluid card bg-primary"></div>
+
+
+
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-2 mb-2">
+                        <div class="card text-center">
+                            Test
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="card">
+                            Test
+                        </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-5">
+                        <div class="card">
+                            Test
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="card">
+                            Test
+                        </div>
+                    </div>
+                </div>
+                </grid>
+
+
+                <div class="row justify-content-center mt-4 ">
+                    <div class="col-md-8">
+                        <div class="card shadow">
+                            <div class="card-body p-4">
+                                <h2 class="card-title h4 mb-3">Why Choose Us?</h2>
+                                <span class="badge bg-success me-2">✓</span>Fresh ingredients daily
+                                <span class="badge bg-success me-2">✓</span>Fresh ingredients daily
+
+                                <div class="d-flex gap-2 mt-4">
+                                    <a href="/PizzaList" class="btn btn-primary btn-lg">View Menu</a>
+                                    <a href="/Privacy" class="btn btn-outline-secondary btn-lg">Learn More</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Horizontal Pizza list with scrollbar-->
+                <div class="mt-5">
+                    <h2 class="h4 mb-3 text-center">Our Popular Pizzas</h2>
+                    <div class="d-flex overflow-auto pb-3">
+                        @foreach (var pizza in Model.PizzaList)
+                        {
+                            <div class="card me-3" style="min-width: 200px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">@pizza.Name</h5>
+                                    <p class="card-text">@($"{pizza.Price:C}")</p>
+                                </div>
+                            </div>
+
+                            <div class="card me-3" style="min-width: 200px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">@pizza.Name</h5>
+                                    <p class="card-text">@($"{pizza.Price:C}")</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+
+                <!-- Special Offer Section -->
+
+                <div class="alert alert-info mt-4 text-center" role="alert">
+                    <strong>Special Offer!</strong> Order now and get 10% off your first pizza.
+                </div>
+
             </div>
         </div>
-    </div>
 
-    <div class="alert alert-info mt-4 text-center" role="alert">
-        <strong>Special Offer!</strong> Order now and get 10% off your first pizza.
+
     </div>
-</div>
+    <div class="col-3">
+        <div class="container-fluid border p-1 bg-light rounded-3 overflow-auto" style="height: 100%;">
+            <h4 class="mb-3">Contact Us</h4>
+            <p class="mb-1">Phone: (123) 456-7890</p>
+            <p class="mb-1">Email: info@contospizza.com info@contospizza.cominfo@contospizza.com</p>
+            <div class="row" style="min-width: 400px;">
+                <div class="col-6">
+                    <div class="card bg-primary text-white mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Daily Special</h5>
+                            <p class="card-text">Get a large pizza with 3 toppings for only $15.99!</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-6">
+                    <div class="card bg-primary text-white mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Daily Special</h5>
+                            <p class="card-text">Get a large pizza with 3 toppings for only $15.99!</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
