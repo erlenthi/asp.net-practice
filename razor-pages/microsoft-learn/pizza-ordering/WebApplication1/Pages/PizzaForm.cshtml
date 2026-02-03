@@ -1,4 +1,53 @@
 ﻿@page
 @model WebApplication1.Pages.PizzaFormModel
 @{
+    ViewData["Title"] = "Pizza Form 🍕";
+
 }
+
+@using WebApplication1.Models
+
+<h1>Pizza Form 🍕</h1>
+
+<form method="post" class="mt-5"> 
+    <div class="mb-3">
+        <label asp-for="NewPizza.Name" class="form-label"></label>
+        <input asp-for="NewPizza.Name" class="form-control" />
+        <span asp-validation-for="NewPizza.Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="NewPizza.Price" class="form-label"></label>
+        <input asp-for="NewPizza.Price" class="form-control" />
+        <span asp-validation-for="NewPizza.Price" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="NewPizza.Size" class="form-label"></label>
+        <select asp-for="NewPizza.Size" class="form-select" asp-items="Html.GetEnumSelectList<PizzaSize>()">
+            <option value="">-- Select Size --</option>
+        </select>
+        <span asp-validation-for="NewPizza.Size" class="text-danger"></span>
+    </div>
+    <div class="form-check mb-3">
+        <input asp-for="NewPizza.IsGlutenFree" class="form-check-input" />
+        <label asp-for="NewPizza.IsGlutenFree" class="form-check-label"></label> 
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label">Toppings</label>
+        @foreach (var topping in Enum.GetValues<Topping>())
+        {
+            <div class="form-check">
+                <input type="checkbox" 
+                       name="NewPizza.Toppings" 
+                       value="@topping" 
+                       class="form-check-input" 
+                       id="topping_@topping" />
+                <label class="form-check-label" for="topping_@topping">
+                    @topping
+                </label>
+            </div>
+        }
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Add Pizza</button>
+</form>

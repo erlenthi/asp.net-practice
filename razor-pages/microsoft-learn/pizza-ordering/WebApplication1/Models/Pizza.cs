@@ -13,6 +13,20 @@ public class Pizza
 
     [Range(0.01, 9999.99)]
     public decimal Price { get; set; }
+    
+    public List<Topping> Toppings { get; set; } = new List<Topping>();
 }
 
 public enum PizzaSize { Small, Medium, Large }
+
+public enum Topping 
+{ 
+    Pepperoni, 
+    Mushrooms, 
+    Onions, 
+    Sausage, 
+    Bacon, 
+    ExtraCheese, 
+    BlackOlives, 
+    GreenPeppers 
+}
