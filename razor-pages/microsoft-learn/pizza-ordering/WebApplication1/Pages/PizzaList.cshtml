@@ -36,52 +36,9 @@
             </tr>
         }
     </tbody>
-
+<!--A progress bar that continously fills and starts from 0 again-->
 </table>
-<div class="progress">
-    <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:40%"></div>
-</div>
-<container>
-    <div id="d-flex" class="d-flex flex-wrap">
-        <div class="card">Pizza</div>
-    </div>
-</container>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        //const table = document.querySelector("table");
-        //table.style.display = "none";
+<partial name="_ProgressBarLogic" />
+<partial name="_ProgressBarLogic" />
 
-        let i = 0;
-        function increaseProgressBar() {
-            const div = document.createElement("div");
-            div.className = "card m-3 p-3";
-            div.textContent = "Pizza added!";
-
-            i++;
-            document.querySelector(".progress-bar").style.width = (i % 100) + "%";
-            if (i % 100 == 0) {
-                document.querySelector("#d-flex").appendChild(div);
-            }
-
-
-        }
-        setInterval(increaseProgressBar, 10);
-
-        @* function animateProgressBar() {
-            for (let i = 0; i <= 100; i++) {
-                setTimeout(() => {
-                    document.querySelector(".progress-bar").style.width = i + "%";
-                    if (i === 100) {
-                        document.querySelector("#d-flex").appendChild(div);
-                        setTimeout(animateProgressBar, 100);
-                        
-                    }
-                }, i * 10); // Incrementing delay for animation
-            }
-        }
-        
-        animateProgressBar(); *@
-        document.querySelector(".table").style.display = "none";
-    });
-</script>
