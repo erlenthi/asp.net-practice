@@ -8,6 +8,7 @@
 
 <!-- New Pizza form will go here -->
 
+
 <table class="table mt-5">
     <thead>
         <tr>
@@ -19,23 +20,68 @@
         </tr>
     </thead>
     <tbody>
-    @foreach (var pizza in Model.PizzaList)
-    {
-        <tr>
-            <td>@pizza.Name</td>
-            <td>@($"{pizza.Price:C}")</td>
-            <td>@pizza.Size</td>
-            <td>@(pizza.IsGlutenFree ? "✔️" : string.Empty)</td>
-            <td>
-                <form method="post" asp-page-handler="Delete" asp-route-id="@pizza.Id">
-                    <button class="btn btn-dark ">Delete</button>
-                    <button class="btn btn-dark"></button>
-                    <button class="btn btn-dark"></button> 
-                 
-                    <div class="btn btn-dark"></div>
-                </form> 
-            </td>
-        </tr>
-    }
+
+        @foreach (var pizza in Model.PizzaList)
+        {
+            <tr>
+                <td>@pizza.Name</td>
+                <td>@($"{pizza.Price:C}")</td>
+                <td>@pizza.Size</td>
+                <td>@(pizza.IsGlutenFree ? "✔️" : string.Empty)</td>
+                <td>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@pizza.Id">
+                        <button class="btn btn-dark ">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
     </tbody>
+
 </table>
+<div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:40%"></div>
+</div>
+<container>
+    <div id="d-flex" class="d-flex flex-wrap">
+        <div class="card">Pizza</div>
+    </div>
+</container>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        //const table = document.querySelector("table");
+        //table.style.display = "none";
+
+        let i = 0;
+        function increaseProgressBar() {
+            const div = document.createElement("div");
+            div.className = "card m-3 p-3";
+            div.textContent = "Pizza added!";
+
+            i++;
+            document.querySelector(".progress-bar").style.width = (i % 100) + "%";
+            if (i % 100 == 0) {
+                document.querySelector("#d-flex").appendChild(div);
+            }
+
+
+        }
+        setInterval(increaseProgressBar, 10);
+
+        @* function animateProgressBar() {
+            for (let i = 0; i <= 100; i++) {
+                setTimeout(() => {
+                    document.querySelector(".progress-bar").style.width = i + "%";
+                    if (i === 100) {
+                        document.querySelector("#d-flex").appendChild(div);
+                        setTimeout(animateProgressBar, 100);
+                        
+                    }
+                }, i * 10); // Incrementing delay for animation
+            }
+        }
+        
+        animateProgressBar(); *@
+        document.querySelector(".table").style.display = "none";
+    });
+</script>

@@ -15,8 +15,10 @@ public class PizzaListModel : PageModel
         _service = service;
     }
 
-    public void OnGet()
+
+    public async Task OnGetAsync()
     {
         PizzaList = _service.GetPizzas();
+
     }
 }
