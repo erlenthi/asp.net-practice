@@ -24,4 +24,10 @@ public class PizzaListModel : PageModel
         PizzaList = _service.GetPizzas();
         SelectedTopping = Topping.Bacon;
     }
+
+    public IActionResult OnPostDelete(int id)
+    {
+        _service.DeletePizza(id);
+        return RedirectToPage();
+    }
 }

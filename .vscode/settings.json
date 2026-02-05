@@ -1,3 +1,11 @@
 {
-    "dotnet.defaultSolution": "WebApplication1.sln"
+    "dotnet.defaultSolution": "WebApplication1.sln",
+    "html.suggest.classNames": true,
+    "css.lint.unknownAtRules": "ignore",
+    "css.classNameCompletion.enable": true,
+    "css.classNameCompletion.languages": {
+    "razor": "html"
+}
+
+
 }

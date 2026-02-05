@@ -21,7 +21,6 @@ C:\Users\erlen\programmering\asp.net\asp.net-practice\razor-pages\microsoft-lear
 C:\Users\erlen\programmering\asp.net\asp.net-practice\razor-pages\microsoft-learn\pizza-ordering\WebApplication1\obj\Debug\net10.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\erlen\programmering\asp.net\asp.net-practice\razor-pages\microsoft-learn\pizza-ordering\WebApplication1\obj\Debug\net10.0\scopedcss\bundle\WebApplication1.styles.css
 C:\Users\erlen\programmering\asp.net\asp.net-practice\razor-pages\microsoft-learn\pizza-ordering\WebApplication1\obj\Debug\net10.0\scopedcss\projectbundle\WebApplication1.bundle.scp.css
-C:\Users\erlen\programmering\asp.net\asp.net-practice\razor-pages\microsoft-learn\pizza-ordering\WebApplication1\obj\Debug\net10.0\compressed\556miamfr6-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\erlen\programmering\asp.net\asp.net-practice\razor-pages\microsoft-learn\pizza-ordering\WebApplication1\obj\Debug\net10.0\compressed\u3m5yo2x8f-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\erlen\programmering\asp.net\asp.net-practice\razor-pages\microsoft-learn\pizza-ordering\WebApplication1\obj\Debug\net10.0\compressed\w3u7ibosd4-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\erlen\programmering\asp.net\asp.net-practice\razor-pages\microsoft-learn\pizza-ordering\WebApplication1\obj\Debug\net10.0\compressed\8yqr3kw3fy-{0}-bqjiyaj88i-bqjiyaj88i.gz
@@ -140,3 +139,4 @@ C:\Users\erlen\programmering\asp.net\asp.net-practice\razor-pages\microsoft-lear
 C:\Users\erlen\programmering\asp.net\asp.net-practice\razor-pages\microsoft-learn\pizza-ordering\WebApplication1\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\erlen\programmering\asp.net\asp.net-practice\razor-pages\microsoft-learn\pizza-ordering\WebApplication1\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\erlen\programmering\asp.net\asp.net-practice\razor-pages\microsoft-learn\pizza-ordering\WebApplication1\obj\Debug\net10.0\WebAppli.7D14BD69.Up2Date
+C:\Users\erlen\programmering\asp.net\asp.net-practice\razor-pages\microsoft-learn\pizza-ordering\WebApplication1\obj\Debug\net10.0\compressed\556miamfr6-{0}-hv6jg6opbh-hv6jg6opbh.gz

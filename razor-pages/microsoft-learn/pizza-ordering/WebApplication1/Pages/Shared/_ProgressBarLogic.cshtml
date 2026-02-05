@@ -44,8 +44,8 @@
         });
         let counter = 0;
         function increaseProgressBar() {
-
-            speed = slider.value / 10;
+            @*Minus 1 to enable backwards. Divided by 10 to slow down speed*@
+            speed = ((slider.value-10) / 10);
             if (!pause) i += Number(speed);
             bar.style.width = i.toString() + "%";
             const div = document.createElement("div");
@@ -53,17 +53,27 @@
             div.textContent = "Pizza #" + pizzaData[counter % pizzaData.length].name;
             console.log(i);
             if (i >= 100) {
-                i = 0;
+                i = 0.1;
                 counter++;
                 container.appendChild(div);
-                if (counter % 4 == 0) {
-                const cards = wrapper.querySelectorAll(".card");
-                for (let i = 0; i < 3 && i < cards.length; i++) {
-                    cards[i].remove();
-                }
+                @* if (counter % 4 == 0) {
+                    const cards = wrapper.querySelectorAll(".card");
+                    for (let i = 0; i < 3 && i < cards.length; i++) {
+                        cards[i].remove();
+                    }
+                } *@
             }
+            if (i <= 0) {
+                i = 99.9;
+                const cards = wrapper.querySelectorAll(".card")[0].remove();
+                @* if (counter % 4 == 0) {
+                    const cards = wrapper.querySelectorAll(".card");
+                    for (let i = 0; i < 3 && i < cards.length; i++) {
+                        cards[i].remove();
+                    }
+                } *@
             }
-            
+
         }
 
         setInterval(increaseProgressBar, 10);
