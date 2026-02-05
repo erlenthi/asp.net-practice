@@ -1,9 +1,9 @@
 ﻿@page
 @model WebApplication1.Pages.PizzaListModel
+@using WebApplication1.Models
 @{
     ViewData["Title"] = "Pizza List 🍕";
 }
-
 <h1>Pizza List 🍕</h1>
 
 <!-- New Pizza form will go here -->
@@ -22,8 +22,8 @@
 
         @foreach (var pizza in Model.PizzaList)
         {
-            <tr>
-                <td>@pizza.Name</td>
+            <tr class="bg-dark">
+                <td id="@("Id" + pizza.Id)">@pizza.Name</td>
                 <td>@($"{pizza.Price:C}")</td>
                 <td>@pizza.Size</td>
                 <td>@(pizza.IsGlutenFree ? "✔️" : string.Empty)</td>
@@ -35,10 +35,53 @@
             </tr>
         }
     </tbody>
-<!--A progress bar that continously fills and starts from 0 again-->
+
+    <ul>
+        @foreach (var topping in Enum.GetValues<Topping>())
+        {
+            <button class="@topping">
+                <li>@topping</li>
+            </button>
+        }
+    </ul>
+
+
+    <!--A progress bar that continously fills and starts from 0 again-->
 </table>
 
+<script>
+    const pizzaData = @Html.Raw(Json.Serialize(Model.PizzaList));
+    const toppings = @Html.Raw(Json.Serialize(Enum.GetValues<Topping>().Select(t => t.ToString())));
+    console.log(toppings);
 
-<partial name="_ProgressBarLogic" />
-<partial name="_ProgressBarLogic" />
+    @* const toppingButton = document.querySelector(".Pepperoni");
+toppingButton.addEventListener("click", (e) => { 
+    const toppingElement = document.querySelector(".Id2");
+    toppingElement.className += " bg-dark-subtle"
+}); *@
+
+        toppings.forEach(topping => {
+            
+            toppingButton = document.querySelector("." + topping);
+            toppingButton.addEventListener("click", (e) => {
+                
+                pizzaData.forEach(pizza => {
+                    let pizzaElement = document.querySelector("#Id" + pizza.id);
+                    if (pizza.toppings.map(t => toppings[t]).includes(topping)) {
+                        console.log(pizza.id);
+                        pizzaElement.className = " bg-dark-subtle"
+                    } else {
+                        pizzaElement.className = " ";
+                    }
+
+                })
+
+            })
+        });
+
+</script>
+
+
+@* <partial name="_ProgressBarLogic" />
+<partial name="_ProgressBarLogic" /> *@
 

@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebApplication1.Models;
@@ -8,7 +9,9 @@ namespace WebApplication1.Pages;
 public class PizzaListModel : PageModel
 {
     private readonly PizzaService _service;
+
     public IList<Pizza> PizzaList { get;set; } = default!;
+    public Topping SelectedTopping { get;set; } = default!;
 
     public PizzaListModel(PizzaService service)
     {
@@ -16,9 +19,9 @@ public class PizzaListModel : PageModel
     }
 
 
-    public async Task OnGetAsync()
+    public void OnGet()
     {
         PizzaList = _service.GetPizzas();
-
+        SelectedTopping = Topping.Bacon;
     }
 }

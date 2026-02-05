@@ -28,21 +28,24 @@ using (var scope = app.Services.CreateScope())
                 Name = "Margherita",
                 Size = PizzaSize.Medium,
                 IsGlutenFree = false,
-                Price = 12.99M
+                Price = 12.99M,
+                Toppings = new List<Topping> { Topping.ExtraCheese }
             },
             new Pizza
             {
                 Name = "Pepperoni",
                 Size = PizzaSize.Large,
                 IsGlutenFree = false,
-                Price = 15.99M
+                Price = 15.99M,
+                Toppings = new List<Topping> { Topping.Pepperoni, Topping.ExtraCheese }
             },
             new Pizza
             {
                 Name = "Veggie Delight",
                 Size = PizzaSize.Medium,
                 IsGlutenFree = true,
-                Price = 13.99M
+                Price = 13.99M,
+                Toppings = new List<Topping> { Topping.Mushrooms, Topping.Onions, Topping.GreenPeppers, Topping.BlackOlives }
             }
             ,
                         new Pizza
@@ -50,63 +53,72 @@ using (var scope = app.Services.CreateScope())
                             Name = "Hawaiian",
                             Size = PizzaSize.Large,
                             IsGlutenFree = false,
-                            Price = 14.99M
+                            Price = 14.99M,
+                            Toppings = new List<Topping> { Topping.Bacon }
                         },
                         new Pizza
                         {
                             Name = "BBQ Chicken",
                             Size = PizzaSize.Medium,
                             IsGlutenFree = false,
-                            Price = 16.99M
+                            Price = 16.99M,
+                            Toppings = new List<Topping> { Topping.Onions, Topping.Bacon }
                         },
                         new Pizza
                         {
                             Name = "Meat Lovers",
                             Size = PizzaSize.Large,
                             IsGlutenFree = false,
-                            Price = 17.99M
+                            Price = 17.99M,
+                            Toppings = new List<Topping> { Topping.Pepperoni, Topping.Sausage, Topping.Bacon }
                         },
                         new Pizza
                         {
                             Name = "Four Cheese",
                             Size = PizzaSize.Small,
                             IsGlutenFree = false,
-                            Price = 11.99M
+                            Price = 11.99M,
+                            Toppings = new List<Topping> { Topping.ExtraCheese }
                         },
                         new Pizza
                         {
                             Name = "Supreme",
                             Size = PizzaSize.Large,
                             IsGlutenFree = false,
-                            Price = 18.99M
+                            Price = 18.99M,
+                            Toppings = new List<Topping> { Topping.Pepperoni, Topping.Sausage, Topping.Mushrooms, Topping.Onions, Topping.GreenPeppers, Topping.BlackOlives }
                         },
                         new Pizza
                         {
                             Name = "Mediterranean",
                             Size = PizzaSize.Medium,
                             IsGlutenFree = true,
-                            Price = 15.49M
+                            Price = 15.49M,
+                            Toppings = new List<Topping> { Topping.BlackOlives, Topping.Onions }
                         },
                         new Pizza
                         {
                             Name = "Buffalo Chicken",
                             Size = PizzaSize.Medium,
                             IsGlutenFree = false,
-                            Price = 16.49M
+                            Price = 16.49M,
+                            Toppings = new List<Topping> { Topping.Onions, Topping.ExtraCheese }
                         },
                         new Pizza
                         {
                             Name = "Mushroom Truffle",
                             Size = PizzaSize.Small,
                             IsGlutenFree = true,
-                            Price = 14.49M
+                            Price = 14.49M,
+                            Toppings = new List<Topping> { Topping.Mushrooms, Topping.ExtraCheese }
                         },
                         new Pizza
                         {
                             Name = "Spicy Italian",
                             Size = PizzaSize.Large,
                             IsGlutenFree = false,
-                            Price = 16.99M
+                            Price = 16.99M,
+                            Toppings = new List<Topping> { Topping.Pepperoni, Topping.Sausage, Topping.GreenPeppers }
                         },
                         new Pizza
                         {
