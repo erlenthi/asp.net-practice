@@ -1,22 +1,23 @@
 <div class="progress-wrapper">
+    <input type="range" id="progressSpeed" class="form-range" min="0" max="20" value="10"
+        onchange="rangevalue.value=value">
     <div class="progress">
         <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:0%"></div>
     </div>
 
-
     <!--A new card is added every time the progressbar is filled-->
     <container>
-        <div class="pizzaCard d-flex flex-wrap">
+        <div class="pizzaCard d-flex overflow-auto">
 
             <div class="card">Pizza</div>
         </div>
     </container>
 
-    <button class = "pauseButton btn btn-danger">Pause</button>
+    <button class="pauseButton btn btn-danger">Pause</button>
 </div>
 
 <script>
-    
+
     (function () {
         const pizzaData = @Html.Raw(Json.Serialize(Model.PizzaList));
         // Get the script's parent wrapper (scope to THIS partial only)
@@ -25,26 +26,44 @@
 
         const bar = wrapper.querySelector(".progress-bar");
         const container = wrapper.querySelector(".pizzaCard");
-        const pauseButton = wrapper.querySelector(".pauseButton")
+        const pauseButton = wrapper.querySelector(".pauseButton");
+        const slider = wrapper.querySelector("#progressSpeed");
 
         let i = 0;
-        let pause = false; 
+        let pause = false;
+        let speed = 1;
 
-        pauseButton.addEventListener("click",(e)=> {
-            pause = !pause; 
+        firstWrapper = document.querySelector(".pizzaCard");
+        firstWrapper.className = "pizzaCard d-flex flex-wrap"
+
+        // slider.addEventListener("change",(e) =>{
+        //  speed = slider.value;
+        //})
+        pauseButton.addEventListener("click", (e) => {
+            pause = !pause;
         });
-
+        let counter = 0;
         function increaseProgressBar() {
-            if(!pause) i++;
-            bar.style.width = (i % 100) + "%";
+
+            speed = slider.value / 10;
+            if (!pause) i += Number(speed);
+            bar.style.width = i.toString() + "%";
             const div = document.createElement("div");
             div.className = "card m-3 p-3";
-            div.textContent = "Pizza #" + pizzaData[(i / 100)%pizzaData.length].name;
-
-            if (i % 100 == 0) {
-
+            div.textContent = "Pizza #" + pizzaData[counter % pizzaData.length].name;
+            console.log(i);
+            if (i >= 100) {
+                i = 0;
+                counter++;
                 container.appendChild(div);
+                if (counter % 4 == 0) {
+                const cards = wrapper.querySelectorAll(".card");
+                for (let i = 0; i < 3 && i < cards.length; i++) {
+                    cards[i].remove();
+                }
             }
+            }
+            
         }
 
         setInterval(increaseProgressBar, 10);
