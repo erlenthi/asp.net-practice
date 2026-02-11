@@ -13,6 +13,10 @@ builder.Services.AddScoped<PizzaService>();
 builder.Services.AddDbContext<PizzaContext>(options =>
     options.UseInMemoryDatabase("PizzaDb"));
 
+// Add SQL Server DbContext
+builder.Services.AddDbContext<SqlPizzaContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlPizzaConnection")));
+
 var app = builder.Build();
 
 // Seed the database with sample pizzas
@@ -20,7 +24,7 @@ using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<PizzaContext>();
 
-    if (!context.Pizzas.Any())
+    if (context.Pizzas != null && !context.Pizzas.Any())
     {
         context.Pizzas.AddRange(
             new Pizza

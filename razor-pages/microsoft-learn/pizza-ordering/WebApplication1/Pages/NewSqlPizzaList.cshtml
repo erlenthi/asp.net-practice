@@ -1,0 +1,88 @@
+﻿@page
+@model WebApplication1.Pages.NewSqlPizzaListModel
+@{
+}
+
+
+@using WebApplication1.Models
+
+<h1>SQL Pizza List 🍕</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>Add New Pizza</h3>
+        <form method="post" class="mt-3">
+            <div class="mb-3">
+                <label asp-for="NewPizza.Name" class="form-label"></label>
+                <input asp-for="NewPizza.Name" class="form-control" />
+                <span asp-validation-for="NewPizza.Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="NewPizza.Price" class="form-label"></label>
+                <input asp-for="NewPizza.Price" class="form-control" />
+                <span asp-validation-for="NewPizza.Price" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="NewPizza.Size" class="form-label"></label>
+                <select asp-for="NewPizza.Size" class="form-select" asp-items="Html.GetEnumSelectList<PizzaSize>()">
+                    <option value="">-- Select Size --</option>
+                </select>
+                <span asp-validation-for="NewPizza.Size" class="text-danger"></span>
+            </div>
+            <div class="form-check mb-3">
+                <input asp-for="NewPizza.IsGlutenFree" class="form-check-input" />
+                <label asp-for="NewPizza.IsGlutenFree" class="form-check-label"></label>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Toppings</label>
+                @foreach (var topping in Enum.GetValues<Topping>())
+                {
+                    <div class="form-check">
+                        <input type="checkbox" name="NewPizza.Toppings" value="@topping" class="form-check-input" id="topping_@topping" />
+                        <label class="form-check-label" for="topping_@topping">@topping</label>
+                    </div>
+                }
+            </div>
+            <button type="submit" class="btn btn-primary">Add Pizza</button>
+        </form>
+    </div>
+    <div class="col-md-8">
+        <h3>Pizza List</h3>
+        <div class="mt-3">
+    @if (Model.PizzaList != null && Model.PizzaList.Any())
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Size</th>
+                    <th>Price</th>
+                    <th>Gluten Free</th>
+                    <th>Toppings</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var pizza in Model.PizzaList)
+                {
+                    <tr>
+                        <td>@pizza.Name</td>
+                        <td>@pizza.Size</td>
+                        <td>$@pizza.Price</td>
+                        <td>@(pizza.IsGlutenFree ? "Yes" : "No")</td>
+                        <td>@string.Join(", ", pizza.Toppings)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No pizzas found in the SQL database. Add some pizzas to get started!</p>
+    }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

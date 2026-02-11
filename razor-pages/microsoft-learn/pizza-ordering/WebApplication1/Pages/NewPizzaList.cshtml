@@ -32,7 +32,7 @@
 
     </div>
 
-    <div class=" col-10 container h-100 gap-4 align-content-around d-flex flex-wrap">
+    <div class=" col-10 container h-100 gap-4 d-flex flex-wrap">
         @foreach (var pizza in Model.PizzaList.Select((p, i) => new { Pizza = p, Index = i }))
         {
             <div class="card">

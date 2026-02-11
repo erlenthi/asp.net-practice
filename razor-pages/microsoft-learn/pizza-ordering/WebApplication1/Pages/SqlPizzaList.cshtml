@@ -1,0 +1,46 @@
+@page
+@model WebApplication1.Pages.SqlPizzaListModel
+@{
+    ViewData["Title"] = "SQL Pizza List";
+}
+
+@using WebApplication1.Models
+
+<h1>SQL Pizza List 🍕</h1>
+
+<p>
+    <a asp-page="PizzaForm">Create New Pizza</a>
+</p>
+
+<div class="container mt-4">
+    @if (Model.PizzaList != null && Model.PizzaList.Any())
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Size</th>
+                    <th>Price</th>
+                    <th>Gluten Free</th>
+                    <th>Toppings</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var pizza in Model.PizzaList)
+                {
+                    <tr>
+                        <td>@pizza.Name</td>
+                        <td>@pizza.Size</td>
+                        <td>$@pizza.Price</td>
+                        <td>@(pizza.IsGlutenFree ? "Yes" : "No")</td>
+                        <td>@string.Join(", ", pizza.Toppings)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No pizzas found in the SQL database. Add some pizzas to get started!</p>
+    }
+</div>
